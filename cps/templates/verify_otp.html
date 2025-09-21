@@ -9,6 +9,7 @@
     </p>
 
     <form method="POST" action="{{ url_for('web.verify_otp',email=email) }}">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       <div class="otp-inputs" style="display:flex;justify-content:space-between;margin:20px 0;">
         {% for i in range(1,7) %}
           <input type="text" name="otp{{i}}" maxlength="1" pattern="\d" required 

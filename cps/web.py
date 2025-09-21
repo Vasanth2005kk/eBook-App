@@ -1379,6 +1379,7 @@ def render_login(username="", password=""):
 
 @web.route('/verify-otp/<email>', methods=['GET', 'POST'], endpoint="verify_otp")
 def verify_otp(email):
+    log.info(f"called verify otp {request.method}")
     email = unquote(email) # decode back to normal
     if request.method == 'GET':
         return render_title_template('verify_otp.html', title="Verify OTP",email=email)
